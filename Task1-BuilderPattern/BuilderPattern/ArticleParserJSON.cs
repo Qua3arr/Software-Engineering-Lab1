@@ -120,8 +120,11 @@ namespace BuilderPattern
     {
         static void Main(string[] args)
         {
-            string inputFile = "article.txt";
-            string outputFile = "article.json";
+            string solutionDir = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\.."));
+            string dataDir = Path.Combine(solutionDir, "Data");
+
+            string inputFile = Path.Combine(dataDir, "article.txt");
+            string outputFile = Path.Combine(dataDir, "article.json");
 
             var parser = new ArticleWriter();
             var article = parser.ParseText(inputFile);
